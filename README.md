@@ -95,6 +95,20 @@ If you want Kafka + Zookeeper + MongoDB locally:
 docker compose up -d
 ```
 
+## Docker Commands to run containers
+
+```bash
+ZOOKEEPER = docker run -p 2181:2181 zookeeper;
+
+KAFKA= docker run -d --name kafka \
+  -p 9092:9092 \
+  -e KAFKA_ZOOKEEPER_CONNECT=<YOUR_IP>:2181 \
+  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://<YOUR_IP>:9092 \
+  -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \
+  -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
+  confluentinc/cp-kafka
+```
+
 Set your Mongo connection in `user-service/.env` like:
 
 ```bash
