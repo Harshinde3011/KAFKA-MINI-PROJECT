@@ -100,7 +100,7 @@ docker compose up -d
 ```bash
 ZOOKEEPER = docker run -p 2181:2181 zookeeper;
 
-KAFKA= docker run -d --name kafka \
+KAFKA = docker run -d --name kafka \
   -p 9092:9092 \
   -e KAFKA_ZOOKEEPER_CONNECT=<YOUR_IP>:2181 \
   -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://<YOUR_IP>:9092 \
